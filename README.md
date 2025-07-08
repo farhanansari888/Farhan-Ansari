@@ -1,4 +1,4 @@
 Personal Portfolio Website 😉 
 
 
-Live Link: [smartxhacker.com]
+Live Link: [https://smartxhacker.com]
