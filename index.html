@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farhan Ansari — Portfolio</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- Icons -->
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter&family=Outfit&family=Playfair+Display&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="h-full font-body text-gray-200 bg-[#060606]" id="body-el">
+    <div id="app-wrapper" class="w-full h-full overflow-auto relative bg-[#060606]">
+        <div class="bg-glow"></div>
+        <div class="bg-glow" style="top: auto; bottom: -200px; left: auto; right: -200px;"></div>
+
+        <!-- Nav -->
+        <nav class="w-full fixed top-0 left-0 z-50 glass-nav transition-all duration-300">
+            <div class="max-w-6xl mx-auto px-6 flex items-center justify-between" style="height:72px;">
+                <span id="nav-name"
+                    class="font-sans-display font-semibold text-xl tracking-tight text-white">Farhan</span>
+                <div class="hidden md:flex items-center gap-10 text-xs tracking-[0.15em] uppercase font-medium">
+                    <a href="#about" class="nav-link text-white">About</a>
+                    <a href="#skills" class="nav-link text-white">Skills</a>
+                    <a href="#projects" class="nav-link text-white">Projects</a>
+                    <a href="#contact" class="nav-link text-white">Contact</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-white" aria-label="Menu">
+                    <i data-lucide="menu" style="width:24px;height:24px;"></i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="fixed inset-0 z-50 hidden flex-col items-center justify-center gap-10 bg-[#060606] bg-opacity-95 backdrop-blur-xl">
+            <button id="mobile-close-btn" class="absolute top-6 right-6 text-white" aria-label="Close">
+                <i data-lucide="x" style="width:28px;height:28px;"></i>
+            </button>
+            <a href="#about"
+                class="mobile-nav-link text-3xl font-sans-display font-medium text-white hover:opacity-70 transition-opacity">About</a>
+            <a href="#skills"
+                class="mobile-nav-link text-3xl font-sans-display font-medium text-white hover:opacity-70 transition-opacity">Skills</a>
+            <a href="#projects"
+                class="mobile-nav-link text-3xl font-sans-display font-medium text-white hover:opacity-70 transition-opacity">Projects</a>
+            <a href="#contact"
+                class="mobile-nav-link text-3xl font-sans-display font-medium text-white hover:opacity-70 transition-opacity">Contact</a>
+        </div>
+
+        <!-- Hero -->
+        <section id="hero"
+            class="w-full flex flex-col items-center justify-center text-center px-6 min-h-screen relative z-10 pt-20 overflow-hidden bg-[#060606]">
+
+            <!-- Elegant grid background -->
+            <div
+                class="absolute inset-0 z-0 bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]">
+            </div>
+
+            <!-- Animated Ambient Background mesh glow (Performance Optimized) -->
+            <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+                <div
+                    class="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] bg-[radial-gradient(circle_at_center,rgba(79,70,229,0.15)_0%,transparent_60%)] animate-[float-hero_8s_ease-in-out_infinite]">
+                </div>
+                <div
+                    class="absolute bottom-[-10%] right-[-10%] w-[700px] h-[700px] bg-[radial-gradient(circle_at_center,rgba(147,51,234,0.15)_0%,transparent_60%)] animate-[float-hero_10s_ease-in-out_infinite_reverse]">
+                </div>
+                <div
+                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-[radial-gradient(circle_at_center,rgba(16,185,129,0.1)_0%,transparent_60%)] animate-[float-hero_12s_ease-in-out_infinite]">
+                </div>
+            </div>
+
+            <div
+                class="relative z-10 inline-flex items-center px-5 py-2.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl mb-10 fade-in transition-all duration-500 hover:scale-105 hover:bg-white/10 hover:border-white/20 cursor-default shadow-[0_0_30px_rgba(255,255,255,0.03)] hover:shadow-[0_0_40px_rgba(255,255,255,0.08)]">
+                <span class="relative flex h-3 w-3 mr-3">
+                    <span
+                        class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span
+                        class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500 shadow-[0_0_12px_rgba(16,185,129,0.8)]"></span>
+                </span>
+                <span class="text-xs font-semibold tracking-[0.2em] uppercase text-gray-200">Available for
+                    Opportunities</span>
+            </div>
+
+            <h1 id="hero-name"
+                class="relative z-10 font-sans-display font-medium leading-[1.05] tracking-tight mb-6 hero-text-glow"
+                style="font-size:clamp(4rem, 12vw, 9rem); padding-bottom: 0.1em; opacity: 0;">Farhan Ansari</h1>
+
+            <p id="hero-title"
+                class="relative z-10 fade-in mt-2 text-lg md:text-2xl font-light tracking-wide text-gray-300 max-w-2xl mx-auto leading-relaxed drop-shadow-md">
+                App Developer <span class="text-white/30 px-3 text-sm align-middle">✦</span> Web Developer
+            </p>
+
+            <div class="fade-in mt-16 flex flex-col sm:flex-row gap-6 items-center justify-center">
+                <a href="#projects"
+                    class="button-primary group relative inline-flex items-center gap-3 text-sm font-medium tracking-[0.1em] uppercase px-10 py-5 bg-white text-black rounded-full hover:scale-105 transition-transform duration-300 shadow-[0_0_40px_rgba(255,255,255,0.2)]">
+                    Explore My Work <i data-lucide="arrow-right" class="group-hover:translate-x-1 transition-transform"
+                        style="width:18px;height:18px;"></i>
+                </a>
+                <a href="#contact"
+                    class="group relative inline-flex items-center gap-3 text-sm font-medium tracking-[0.1em] uppercase px-10 py-5 border border-white/20 text-white rounded-full hover:bg-white/5 hover:scale-105 transition-all duration-300">
+                    Get in touch
+                </a>
+            </div>
+        </section>
+
+        <!-- Divider -->
+        <div class="divider w-full"></div>
+
+        <!-- About -->
+        <section id="about" class="w-full px-6 py-32 relative z-10">
+            <div class="max-w-6xl mx-auto">
+                <div class="fade-in flex items-baseline gap-6 mb-16">
+                    <span class="text-xs tracking-widest uppercase text-gray-500 font-sans-display">01</span>
+                    <h2 class="font-sans-display font-medium text-white" style="font-size:clamp(2.5rem, 5vw, 4rem);">
+                        About Me</h2>
+                </div>
+                <div class="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+                    <div class="lg:col-span-4 fade-in">
+                        <div class="w-full aspect-[4/5] rounded-3xl overflow-hidden relative group">
+                            <div
+                                class="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 mixing-blend-overlay">
+                            </div>
+                            <img src="/imgs/profile.jpg" id="profile-img" alt="Farhan Ansari"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        </div>
+                    </div>
+                    <div class="lg:col-span-8 fade-in flex flex-col justify-center">
+                        <h3 class="font-serif-display text-3xl md:text-4xl text-white mb-8 leading-tight">Turning imagination into reality</h3>
+                        <p id="about-text" class="text-base md:text-lg leading-[1.8] font-light text-gray-300">
+                            I'm a skilled developer proficient in both frontend and backend technologies, with a passion for crafting innovative apps and websites. From designing intuitive user interfaces to building robust server-side architectures, I bring ideas to life through code. Whether it's a responsive web application or a feature-rich mobile app, I enjoy turning complex problems into elegant solutions that deliver exceptional user experiences.   
+                        </p>
+                        <div class="mt-12 grid grid-cols-2 gap-8 pt-8 border-t border-white/10 w-full max-w-sm">
+                            <div>
+                                <span class="font-sans-display text-4xl md:text-5xl font-light text-white">5+</span>
+                                <p class="text-xs mt-3 tracking-widest uppercase text-gray-500 font-medium">Projects
+                                    Built</p>
+                            </div>
+                            <div>
+                                <span class="font-sans-display text-4xl md:text-5xl font-light text-white">10+</span>
+                                <p class="text-xs mt-3 tracking-widest uppercase text-gray-500 font-medium">Technologies
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Divider -->
+        <div class="divider w-full"></div>
+
+        <!-- Skills Section -->
+        <section id="skills" class="w-full py-40 relative z-10 bg-black/40 border-y border-white/5 overflow-hidden">
+            <div class="max-w-6xl mx-auto px-6 relative z-10">
+                <div class="fade-in flex flex-col items-center text-center gap-4 mb-20">
+                    <span class="text-xs font-medium tracking-[0.2em] uppercase text-gray-500 font-sans-display">02 •
+                        Arsenal</span>
+                    <h2 class="font-sans-display font-medium text-white tracking-tight"
+                        style="font-size:clamp(3rem, 6vw, 5rem);">
+                        Technical Expertise</h2>
+                    <p class="text-gray-400 max-w-2xl mt-4 font-light text-lg">Specialized in building intelligent
+                        systems, websites, and mobile applications.</p>
+                </div>
+
+                <div class="flex flex-wrap justify-center gap-8 fade-in">
+                    <!-- Card 1 -->
+                    <div
+                        class="fade-in bg-white rounded-[24px] p-5 flex flex-col gap-3 w-full max-w-[320px] border border-gray-100 shadow-[0_4px_20px_-4px_rgba(255,255,255,0.05)] hover:shadow-[0_8px_30px_-4px_rgba(255,255,255,0.15)] hover:-translate-y-1 transition-all duration-300 relative z-10 group overflow-hidden">
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-blue-500/10 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform duration-500">
+                            <i data-lucide="brain-circuit" class="text-blue-500" style="width:28px;height:28px;"></i>
+                        </div>
+                        <div class="flex flex-col gap-1 mt-1">
+                            <h3 class="font-sans-display font-medium text-base text-gray-900 leading-tight">AI & Machine Learning</h3>
+                        </div>
+                        <div class="flex flex-wrap gap-1.5 mt-1 border-t border-gray-100 pt-3">
+                            <span
+                                class="text-[11px] font-medium px-2 py-1 rounded-md bg-gray-50 text-gray-600 border border-gray-100/50">Python</span>
+                            <span
+                                class="text-[11px] font-medium px-2 py-1 rounded-md bg-gray-50 text-gray-600 border border-gray-100/50">TensorFlow</span>
+                            <span
+                                class="text-[11px] font-medium px-2 py-1 rounded-md bg-gray-50 text-gray-600 border border-gray-100/50">PyTorch</span>
+                            <span
+                                class="text-[11px] font-medium px-2 py-1 rounded-md bg-gray-50 text-gray-600 border border-gray-100/50">Scikit-learn</span>
+                            <span
+                                class="text-[11px] font-medium px-2 py-1 rounded-md bg-gray-50 text-gray-600 border border-gray-100/50">Data
+                                Analysis</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div
+                        class="fade-in bg-white rounded-[24px] p-5 flex flex-col gap-3 w-full max-w-[320px] border border-gray-100 shadow-[0_4px_20px_-4px_rgba(255,255,255,0.05)] hover:shadow-[0_8px_30px_-4px_rgba(255,255,255,0.15)] hover:-translate-y-1 transition-all duration-300 relative z-10 group overflow-hidden">
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-500/10 to-teal-500/10 border border-emerald-500/10 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform duration-500">
+                            <i data-lucide="database" class="text-emerald-500" style="width:28px;height:28px;"></i>
+                        </div>
+                        <div class="flex flex-col gap-1 mt-1">
+                            <h3 class="font-sans-display font-medium text-base text-gray-900 leading-tight">Backend &
+                                Systems</h3>
+                        </div>
+                        <div class="flex flex-wrap gap-1.5 mt-1 border-t border-gray-100 pt-3">
+                            <span
+                                class="text-[11px] font-medium px-2 py-1 rounded-md bg-gray-50 text-gray-600 border border-gray-100/50">Java</span>
+                            <span
+                                class="text-[11px] font-medium px-2 py-1 rounded-md bg-gray-50 text-gray-600 border border-gray-100/50">MongoDB</span>
+                            <span
+                                class="text-[11px] font-medium px-2 py-1 rounded-md bg-gray-50 text-gray-600 border border-gray-100/50">SQL</span>
+                            <span
+                                class="text-[11px] font-medium px-2 py-1 rounded-md bg-gray-50 text-gray-600 border border-gray-100/50">Docker</span>
+                            <span
+                                class="text-[11px] font-medium px-2 py-1 rounded-md bg-gray-50 text-gray-600 border border-gray-100/50">REST
+                                APIs</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div
+                        class="fade-in bg-white rounded-[24px] p-5 flex flex-col gap-3 w-full max-w-[320px] border border-gray-100 shadow-[0_4px_20px_-4px_rgba(255,255,255,0.05)] hover:shadow-[0_8px_30px_-4px_rgba(255,255,255,0.15)] hover:-translate-y-1 transition-all duration-300 relative z-10 group overflow-hidden">
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-500/10 to-red-500/10 border border-orange-500/10 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform duration-500">
+                            <i data-lucide="layout-template" class="text-orange-500"
+                                style="width:28px;height:28px;"></i>
+                        </div>
+                        <div class="flex flex-col gap-1 mt-1">
+                            <h3 class="font-sans-display font-medium text-base text-gray-900 leading-tight">Frontend &
+                                Web</h3>
+                        </div>
+                        <div class="flex flex-wrap gap-1.5 mt-1 border-t border-gray-100 pt-3">
+                            <span
+                                class="text-[11px] font-medium px-2 py-1 rounded-md bg-gray-50 text-gray-600 border border-gray-100/50">JavaScript</span>
+                            <span
+                                class="text-[11px] font-medium px-2 py-1 rounded-md bg-gray-50 text-gray-600 border border-gray-100/50">HTML/CSS</span>
+                            <span
+                                class="text-[11px] font-medium px-2 py-1 rounded-md bg-gray-50 text-gray-600 border border-gray-100/50">UI/UX</span>
+                            <span
+                                class="text-[11px] font-medium px-2 py-1 rounded-md bg-gray-50 text-gray-600 border border-gray-100/50">React</span>
+                            <span
+                                class="text-[11px] font-medium px-2 py-1 rounded-md bg-gray-50 text-gray-600 border border-gray-100/50">Tailwind</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Decorative Marquee Background (Performance Optimized) -->
+            <div
+                class="absolute top-[40%] left-0 w-full -translate-y-1/2 overflow-hidden opacity-[0.03] pointer-events-none z-0">
+                <div class="marquee-track flex gap-16 items-center whitespace-nowrap" style="width:max-content;">
+                    <span class="font-serif-display italic text-8xl md:text-[14rem] text-white">App Developer</span>
+                    <span class="font-serif-display italic text-8xl md:text-[14rem] text-white">Web Developer</span>
+                    <!-- Repeat -->
+                    <span class="font-serif-display italic text-8xl md:text-[14rem] text-white">App Developer</span>
+                    <span class="font-serif-display italic text-8xl md:text-[14rem] text-white">Web Developer</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Divider -->
+        <div class="divider w-full"></div>
+
+        <!-- Projects -->
+        <section id="projects" class="w-full px-6 py-32 relative z-10">
+            <div class="max-w-6xl mx-auto">
+                <div class="fade-in flex items-baseline gap-6 mb-20">
+                    <span class="text-xs tracking-widest uppercase text-gray-500 font-sans-display">03</span>
+                    <h2 class="font-sans-display font-medium text-white" style="font-size:clamp(2.5rem, 5vw, 4rem);">
+                        Projects</h2>
+                </div>
+
+                <div class="flex flex-wrap justify-center gap-8">
+                    <!-- Project 1 -->
+                    <div
+                        class="fade-in bg-white rounded-[24px] p-6 flex flex-col gap-4 w-full max-w-[340px] border border-gray-100 shadow-[0_4px_20px_-4px_rgba(255,255,255,0.05)] hover:shadow-[0_8px_30px_-4px_rgba(255,255,255,0.15)] hover:-translate-y-1 transition-all duration-300 relative z-10 group overflow-hidden">
+                        <img alt="Smart Tunnel VPN"
+                            class="pointer-events-none aspect-square w-16 rounded-2xl object-cover select-none"
+                            loading="lazy"
+                            src="https://github.com/farhanansari888/smart-config/blob/main/ic_icon_foreground.png?raw=true" />
+                        <div class="flex flex-col gap-1 mt-1">
+                            <h3 id="project1-title"
+                                class="font-sans-display font-medium text-lg text-gray-900 leading-tight">Smart Tunnel VPN</h3>
+                            <div class="flex gap-1.5 mt-1 opacity-80">
+                                <span class="text-[11px] font-medium text-gray-500">Java</span>
+                                <span class="text-[11px] font-medium text-gray-300">•</span>
+                                <span class="text-[11px] font-medium text-gray-500">Android SDK</span>
+                            </div>
+                        </div>
+                        <p id="project1-desc"
+                            class="text-[14px] text-gray-500 leading-relaxed font-normal mb-2 flex-grow line-clamp-4">
+                            A VPN app with SSH and V2ray support, built using Java and Android SDK. It features a sleek UI, multiple server options, and robust security measures for safe and private browsing on mobile devices.
+                        </p>
+                        <div class="flex items-center gap-2 pt-4 mt-auto border-t border-gray-50">
+                            <!-- Avatar -->
+                            <div
+                                class="w-7 h-7 rounded-full overflow-hidden bg-gradient-to-br from-indigo-500 to-purple-500 flex flex-shrink-0 items-center justify-center text-[10px] font-bold text-white shadow-sm ring-2 ring-white/50">
+                                PP
+                            </div>
+                            <span class="text-xs text-gray-700 font-medium">By Farhan Ansari</span>
+                        </div>
+                    </div>
+                    <!-- Project 2 -->
+                    <div
+                        class="fade-in bg-white rounded-[24px] p-6 flex flex-col gap-4 w-full max-w-[340px] border border-gray-100 shadow-[0_4px_20px_-4px_rgba(255,255,255,0.05)] hover:shadow-[0_8px_30px_-4px_rgba(255,255,255,0.15)] hover:-translate-y-1 transition-all duration-300 relative z-10 group overflow-hidden">
+                        <img alt="Dental Clinic Website"
+                            class="pointer-events-none aspect-square w-16 rounded-2xl object-cover select-none"
+                            loading="lazy"
+                            src="https://rahul-jain-clinic.vercel.app/imgs/hero.jpeg" />
+                        <div class="flex flex-col gap-1 mt-1">
+                            <h3 id="project2-title"
+                                class="font-sans-display font-medium text-lg text-gray-900 leading-tight">Dental Clinic Website</h3>
+                            <div class="flex gap-1.5 mt-1 opacity-80">
+                                <span class="text-[11px] font-medium text-gray-500">React</span>
+                                <span class="text-[11px] font-medium text-gray-300">•</span>
+                                <span class="text-[11px] font-medium text-gray-500">Tailwind CSS</span>
+                            </div>
+                        </div>
+                        <p id="project2-desc"
+                            class="text-[14px] text-gray-500 leading-relaxed font-normal mb-2 flex-grow line-clamp-4">
+                            A modern dental clinic website built with React and Tailwind CSS. It features a clean design, responsive layout, and interactive elements to enhance user experience. The site includes appointment booking, service information, and patient testimonials.
+                        </p>
+                        <div class="flex items-center gap-2 pt-4 mt-auto border-t border-gray-50">
+                            <!-- Avatar -->
+                            <div
+                                class="w-7 h-7 rounded-full overflow-hidden bg-gradient-to-br from-indigo-500 to-purple-500 flex flex-shrink-0 items-center justify-center text-[10px] font-bold text-white shadow-sm ring-2 ring-white/50">
+                                PP
+                            </div>
+                            <span class="text-xs text-gray-700 font-medium">By Farhan Ansari</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap justify-center gap-8">
+                        <!-- Project 3 -->
+                        <div
+                            class="fade-in bg-white rounded-[24px] p-6 flex flex-col gap-4 w-full max-w-[340px] border border-gray-100 shadow-[0_4px_20px_-4px_rgba(255,255,255,0.05)] hover:shadow-[0_8px_30px_-4px_rgba(255,255,255,0.15)] hover:-translate-y-1 transition-all duration-300 relative z-10 group overflow-hidden">
+                            <img alt="Hunting Exoplanet"
+                                class="pointer-events-none aspect-square w-16 rounded-2xl object-cover select-none"
+                                loading="lazy"
+                                src="https://ansa-eight.vercel.app/hero.png" />
+                            <div class="flex flex-col gap-1 mt-1">
+                                <h3 id="project3-title"
+                                    class="font-sans-display font-medium text-lg text-gray-900 leading-tight">
+                                    Ansa Fashion Design</h3>
+                                <div class="flex gap-1.5 mt-1 opacity-80">
+                                    <span class="text-[11px] font-medium text-gray-500">React</span>
+                                    <span class="text-[11px] font-medium text-gray-300">•</span>
+                                    <span class="text-[11px] font-medium text-gray-500">Tailwind CSS</span>
+                                </div>
+                            </div>
+                            <p id="project3-desc"
+                                class="text-[14px] text-gray-500 leading-relaxed font-normal mb-2 flex-grow line-clamp-4">
+                                A complete fashion designs collections website for showcase of new collections and designs. Built with React and Tailwind CSS, it features a sleek design, responsive layout, and interactive elements to enhance user experience. The site includes a gallery of designs, designer profiles, and a contact form for inquiries.
+                            </p>
+                            <div class="flex items-center gap-2 pt-4 mt-auto border-t border-gray-50">
+                                <!-- Avatar -->
+                                <div
+                                    class="w-7 h-7 rounded-full overflow-hidden bg-gradient-to-br from-indigo-500 to-purple-500 flex flex-shrink-0 items-center justify-center text-[10px] font-bold text-white shadow-sm ring-2 ring-white/50">
+                                    PP
+                                </div>
+                                <span class="text-xs text-gray-700 font-medium">By Farhan Ansari</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="w-full px-6 py-40 relative z-10 bg-white text-black">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="fade-in mb-8">
+                    <span class="text-xs tracking-widest uppercase text-gray-500 font-sans-display font-medium">04 •
+                        Next Steps</span>
+                </div>
+                <h2 class="fade-in font-serif-display mb-8 leading-[1.1]" style="font-size:clamp(3rem, 8vw, 6rem);">
+                    Let's create something together.</h2>
+                <p class="fade-in text-lg text-gray-600 font-light max-w-xl mx-auto mb-16 px-4">
+                    Open to new opportunities and collaborations. Whether you have a project in mind or just want to say hi, feel free to reach out. I'm always excited to connect with like-minded individuals and explore how we can work together to bring ideas to life.
+                </p>
+
+                <div class="fade-in flex justify-center mb-16">
+                    <a href="mailto:farhanansari8560@gmail.com"
+                        class="group relative inline-flex items-center justify-center px-10 py-5 text-base font-medium text-white transition-all duration-300 bg-black rounded-full hover:bg-gray-800 overflow-hidden">
+                        <span class="relative z-10 flex items-center gap-3">
+                            <i data-lucide="mail" style="width:20px;height:20px;"></i> Start a Conversation
+                        </span>
+                    </a>
+                </div>
+
+                <div class="fade-in flex flex-wrap justify-center gap-4">
+                    <a href="https://www.linkedin.com/in/ansarixfarhan/" target="_blank" rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-gray-300 text-xs font-medium tracking-widest uppercase transition-all duration-300 hover:bg-black hover:text-white hover:border-black text-black">
+                        <i data-lucide="linkedin" style="width:16px;height:16px;"></i> LinkedIn
+                    </a>
+                    <a href="https://github.com/farhanansari888" target="_blank" rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-gray-300 text-xs font-medium tracking-widest uppercase transition-all duration-300 hover:bg-black hover:text-white hover:border-black text-black">
+                        <i data-lucide="github" style="width:16px;height:16px;"></i> GitHub
+                    </a>
+                    <a href="https://t.me/smartxhacker" target="_blank" rel="noopener noreferrer"
+    class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-gray-300 text-xs font-medium tracking-widest uppercase transition-all duration-300 hover:bg-black hover:text-white hover:border-black text-black">
+    <!-- Added inline-flex and 16px font-size to match Lucide's dimensions -->
+    <i class="ri-telegram-line inline-flex" style="font-size: 16px; line-height: 1;"></i> 
+    Telegram
+</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="w-full px-6 py-10 bg-white border-t border-gray-100 relative z-10 text-black">
+            <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+                <span class="font-sans-display font-medium text-sm text-gray-500">© 2026 Farhan Ansari</span>
+                <span class="text-xs font-medium tracking-widest uppercase text-gray-400">Designed with precision</span>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
