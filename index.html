@@ -21,7 +21,7 @@
 </head>
 
 <body class="h-full font-body text-gray-200 bg-[#060606]" id="body-el">
-    <div id="app-wrapper" class="w-full h-full overflow-auto relative bg-[#060606]">
+    <div id="app-wrapper" class="w-full h-full overflow-x-hidden overflow-y-auto relative bg-[#060606]">
         <div class="bg-glow"></div>
         <div class="bg-glow" style="top: auto; bottom: -200px; left: auto; right: -200px;"></div>
 
@@ -256,7 +256,7 @@
             <!-- Decorative Marquee Background (Performance Optimized) -->
             <div
                 class="absolute top-[40%] left-0 w-full -translate-y-1/2 overflow-hidden opacity-[0.03] pointer-events-none z-0">
-                <div class="marquee-track flex gap-16 items-center whitespace-nowrap" style="width:max-content;">
+               <div class="marquee-track flex gap-16 items-center whitespace-nowrap overflow-hidden">
                     <span class="font-serif-display italic text-8xl md:text-[14rem] text-white">App Developer</span>
                     <span class="font-serif-display italic text-8xl md:text-[14rem] text-white">Web Developer</span>
                     <!-- Repeat -->
