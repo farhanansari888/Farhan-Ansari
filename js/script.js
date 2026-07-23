@@ -1,154 +1,138 @@
+/* =========================================================
+   Farhan Ansari — Portfolio JavaScript
+   Advanced animations, scroll interactions, and UX enhancements
+   ========================================================= */
 
+// Initialize Lucide icons
 lucide.createIcons();
 
-const defaultConfig = {
-    theme_mode: 'dark', // 'light' or 'dark'
-    hero_name: 'Farhan Ansari',
-    hero_title: 'App Developer · Web Developer',
-    about_text: "I'm a skilled developer proficient in both frontend and backend technologies, with a passion for crafting innovative apps and websites. From designing intuitive user interfaces to building robust server-side architectures, I bring ideas to life through code. Whether it's a responsive web application or a feature-rich mobile app, I enjoy turning complex problems into elegant solutions that deliver exceptional user experiences.",
-    project1_title: 'Smart Tunnel VPN',
-    project1_desc: 'A VPN app with SSH and V2ray support, built using Java and Android SDK. It features a sleek UI, multiple server options, and robust security measures for safe and private browsing on mobile devices.',
-    project2_title: 'Dental Clinic Website',
-    project2_desc: 'A modern dental clinic website built with React and Tailwind CSS. It features a clean design, responsive layout, and interactive elements to enhance user experience. The site includes appointment booking, service information, and patient testimonials.',
-    project3_title: 'Ansa Fashion Design',
-    project3_desc: 'A complete fashion designs collections website for showcase of new collections and designs. Built with React and Tailwind CSS, it features a sleek design, responsive layout, and interactive elements to enhance user experience. The site includes a gallery of designs, designer profiles, and a contact form for inquiries.'
-};
+// ========== Preloader ==========
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        const preloader = document.getElementById('preloader');
+        if (preloader) preloader.classList.add('loaded');
+    }, 800);
+});
 
-async function onConfigChange(config) {
-    const theme = config.theme_mode || defaultConfig.theme_mode;
-    const body = document.getElementById('body-el');
-    const wrapper = document.getElementById('app-wrapper');
-    const navName = document.getElementById('nav-name');
-    const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
-    const headings = document.querySelectorAll('h1, h2, h3');
-    const icons = document.querySelectorAll('nav i, .project-card i');
+// ========== Custom Cursor ==========
+const initCursor = () => {
+    if (window.matchMedia('(hover: none)').matches) return;
 
-    if (theme === 'light') {
-        body.classList.remove('bg-[#060606]', 'text-gray-200');
-        body.classList.add('bg-[#FAFAFA]', 'text-gray-800', 'light-mode');
-        wrapper.classList.remove('bg-[#060606]');
-        wrapper.classList.add('bg-[#FAFAFA]');
-        navName.classList.remove('text-white');
-        navName.classList.add('text-black');
+    const dot = document.querySelector('.cursor-dot');
+    const ring = document.querySelector('.cursor-ring');
 
-        navLinks.forEach(l => {
-            l.classList.remove('text-white');
-            l.classList.add('text-black');
-        });
+    if (!dot || !ring) return;
 
-        headings.forEach(h => {
-            if (!h.closest('#contact')) {
-                h.classList.remove('text-white');
-                h.classList.add('text-black');
-            }
-        });
+    let mouseX = 0, mouseY = 0;
+    let ringX = 0, ringY = 0;
 
-        document.querySelectorAll('.project-card [data-lucide]').forEach(icon => {
-            icon.parentElement.classList.remove('bg-white/10', 'text-white');
-            icon.parentElement.classList.add('bg-black/5', 'text-black', 'group-hover:bg-black', 'group-hover:text-white');
-        });
-
-    } else {
-        body.classList.add('bg-[#060606]', 'text-gray-200');
-        body.classList.remove('bg-[#FAFAFA]', 'text-gray-800', 'light-mode');
-        wrapper.classList.add('bg-[#060606]');
-        wrapper.classList.remove('bg-[#FAFAFA]');
-
-        navName.classList.add('text-white');
-        navName.classList.remove('text-black');
-
-        navLinks.forEach(l => {
-            l.classList.add('text-white');
-            l.classList.remove('text-black');
-        });
-
-        headings.forEach(h => {
-            if (!h.closest('#contact')) {
-                h.classList.add('text-white');
-                h.classList.remove('text-black');
-            }
-        });
-
-        document.querySelectorAll('.project-card [data-lucide]').forEach(icon => {
-            icon.parentElement.classList.add('bg-white/10', 'text-white');
-            icon.parentElement.classList.remove('bg-black/5', 'text-black', 'group-hover:bg-black', 'group-hover:text-white');
-        });
-    }
-
-    // Text Content Updates
-    const nameEl = document.getElementById('hero-name');
-    nameEl.textContent = config.hero_name || defaultConfig.hero_name;
-    // Always ensure the glow class is present when just setting text
-    nameEl.classList.add('hero-text-glow');
-
-    document.getElementById('hero-title').textContent = config.hero_title || defaultConfig.hero_title;
-    document.getElementById('about-text').textContent = config.about_text || defaultConfig.about_text;
-
-    // Projects
-    document.getElementById('project1-title').textContent = config.project1_title || defaultConfig.project1_title;
-    document.getElementById('project1-desc').textContent = config.project1_desc || defaultConfig.project1_desc;
-    document.getElementById('project2-title').textContent = config.project2_title || defaultConfig.project2_title;
-    document.getElementById('project2-desc').textContent = config.project2_desc || defaultConfig.project2_desc;
-    document.getElementById('project3-title').textContent = config.project3_title || defaultConfig.project3_title;
-    document.getElementById('project3-desc').textContent = config.project3_desc || defaultConfig.project3_desc;
-}
-
-function mapToCapabilities(config) {
-    const make = (key) => ({
-        get: () => config[key] || defaultConfig[key],
-        set: (v) => { config[key] = v; window.elementSdk.setConfig({ [key]: v }); }
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        dot.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
     });
-    return {
-        recolorables: [],
-        borderables: [],
-        fontEditable: null,
-        fontSizeable: null
+
+    // Smooth follow for ring
+    const animateRing = () => {
+        const dx = mouseX - ringX;
+        const dy = mouseY - ringY;
+        ringX += dx * 0.2;
+        ringY += dy * 0.2;
+        ring.style.transform = `translate(${ringX}px, ${ringY}px)`;
+        requestAnimationFrame(animateRing);
     };
-}
+    animateRing();
 
-function mapToEditPanelValues(config) {
-    return new Map([
-        ['theme_mode', config.theme_mode || 'dark'],
-        ['hero_name', config.hero_name || defaultConfig.hero_name],
-        ['hero_title', config.hero_title || defaultConfig.hero_title],
-        ['about_text', config.about_text || defaultConfig.about_text],
-        ['project1_title', config.project1_title || defaultConfig.project1_title],
-        ['project1_desc', config.project1_desc || defaultConfig.project1_desc],
-        ['project2_title', config.project2_title || defaultConfig.project2_title],
-        ['project2_desc', config.project2_desc || defaultConfig.project2_desc],
-        ['project3_title', config.project3_title || defaultConfig.project3_title],
-        ['project3_desc', config.project3_desc || defaultConfig.project3_desc]
-    ]);
-}
-
-if (window.elementSdk && !window.sdkInitializedForAnimation) {
-    window.elementSdk.init({ defaultConfig, onConfigChange, mapToCapabilities, mapToEditPanelValues });
-    window.sdkInitializedForAnimation = true;
-}
-
-// Scroll animations with slight delay for dramatic effect
-const observerOptions = {
-    threshold: 0.15,
-    rootMargin: '0px 0px -50px 0px'
+    // Hover states
+    const hoverables = document.querySelectorAll('a, button, [data-cursor-hover]');
+    hoverables.forEach(el => {
+        el.addEventListener('mouseenter', () => ring.classList.add('hovering'));
+        el.addEventListener('mouseleave', () => ring.classList.remove('hovering'));
+    });
 };
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
+// ========== Scroll Progress Bar ==========
+const updateScrollProgress = () => {
+    const wrapper = document.getElementById('app-wrapper') || window;
+    const scrollTop = wrapper.scrollTop || document.documentElement.scrollTop;
+    const scrollHeight = (wrapper.scrollHeight || document.documentElement.scrollHeight) - window.innerHeight;
+    const progress = (scrollTop / scrollHeight) * 100;
+
+    const bar = document.getElementById('scroll-progress');
+    if (bar) bar.style.width = `${progress}%`;
+};
+
+// ========== Scroll Reveal Animations ==========
+const observerOptions = {
+    threshold: 0.12,
+    rootMargin: '0px 0px -60px 0px'
+};
+
+const scrollObserver = new IntersectionObserver((entries) => {
+    entries.forEach((e, idx) => {
         if (e.isIntersecting) {
             setTimeout(() => {
                 e.target.classList.add('visible');
-            }, 100);
-            observer.unobserve(e.target);
+            }, idx * 60);
+            scrollObserver.unobserve(e.target);
         }
     });
 }, observerOptions);
 
-document.querySelectorAll('.fade-in').forEach((el, i) => {
-    el.style.transitionDelay = `${(i % 5) * 0.1}s`;
-    observer.observe(el);
+document.querySelectorAll('.fade-in, .reveal-left, .reveal-right, .reveal-scale').forEach((el, i) => {
+    el.style.transitionDelay = `${(i % 6) * 0.08}s`;
+    scrollObserver.observe(el);
 });
 
-// Mobile menu toggle
+// ========== Reassemble Hero Name Animation ==========
+const initReassembleAnimation = () => {
+    const nameEl = document.getElementById('hero-name');
+    if (!nameEl) return;
+
+    const text = nameEl.textContent.trim();
+    if (!text) return;
+    nameEl.innerHTML = '';
+    nameEl.classList.remove('hero-text-glow');
+    nameEl.style.opacity = '1';
+
+    const chars = [...text];
+    let assembledCount = 0;
+
+    chars.forEach((char, i) => {
+        const span = document.createElement('span');
+        span.textContent = char === ' ' ? ' ' : char;
+        span.className = 'char';
+        span.style.color = '#ffffff';
+
+        const dx = (Math.random() - 0.5) * 500;
+        const dy = (Math.random() - 0.5) * 500;
+        const dr = (Math.random() - 0.5) * 120;
+
+        span.style.setProperty('--dx', `${dx}px`);
+        span.style.setProperty('--dy', `${dy}px`);
+        span.style.setProperty('--dr', `${dr}deg`);
+
+        const delay = i * 0.05;
+        span.style.transitionDelay = `${delay}s`;
+
+        nameEl.appendChild(span);
+
+        requestAnimationFrame(() => {
+            setTimeout(() => {
+                span.classList.add('assembled');
+                setTimeout(() => {
+                    assembledCount++;
+                    if (assembledCount === chars.length) {
+                        nameEl.textContent = text;
+                        nameEl.classList.add('hero-text-glow');
+                    }
+                }, 850);
+            }, 120);
+        });
+    });
+};
+
+// ========== Mobile Menu ==========
 const mobileMenuBtn = document.getElementById('mobile-menu-btn');
 const mobileCloseBtn = document.getElementById('mobile-close-btn');
 const mobileMenu = document.getElementById('mobile-menu');
@@ -175,95 +159,19 @@ if (mobileMenuBtn && mobileCloseBtn && mobileMenu) {
     });
 }
 
-// Reassemble Animation Logic
-function initReassembleAnimation() {
-    const nameEl = document.getElementById('hero-name');
-    if (!nameEl) return;
-
-    const text = nameEl.textContent.trim();
-    if (!text) return;
-    nameEl.innerHTML = '';
-
-    // Temporarily remove glow to prevent text from being invisible in WebKit/Chrome during transform
-    nameEl.classList.remove('hero-text-glow');
-    nameEl.style.opacity = '1';
-
-    const chars = [...text];
-    let assembledCount = 0;
-
-    chars.forEach((char, i) => {
-        const span = document.createElement('span');
-        span.textContent = char === ' ' ? '\u00A0' : char;
-        span.className = 'char';
-
-        // Force the span to inherit a visible color while animating
-        span.style.color = '#ffffff';
-
-        const dx = (Math.random() - 0.5) * 400; // -200 to 200px
-        const dy = (Math.random() - 0.5) * 400; // -200 to 200px
-        const dr = (Math.random() - 0.5) * 90;  // -45 to 45deg
-
-        span.style.setProperty('--dx', `${dx}px`);
-        span.style.setProperty('--dy', `${dy}px`);
-        span.style.setProperty('--dr', `${dr}deg`);
-
-        const delay = i * 0.04;
-        span.style.transitionDelay = `${delay}s`;
-
-        nameEl.appendChild(span);
-
-        requestAnimationFrame(() => {
-            setTimeout(() => {
-                span.classList.add('assembled');
-
-                setTimeout(() => {
-                    assembledCount++;
-                    if (assembledCount === chars.length) {
-                        nameEl.textContent = text;
-                        nameEl.classList.add('hero-text-glow');
-                    }
-                }, 800);
-            }, 100);
-        });
-    });
-}
-
-// Initialize on load
-window.addEventListener('DOMContentLoaded', () => {
-    initReassembleAnimation();
-
-    const nameEl = document.getElementById('hero-name');
-    if (nameEl && window.MutationObserver) {
-        const observer = new MutationObserver((mutations) => {
-            mutations.forEach((mutation) => {
-                if (mutation.type === 'childList') {
-                    // Prevent infinite loops and only re-trigger if it's raw text
-                    if (!nameEl.querySelector('.char') && nameEl.textContent.trim().length > 0) {
-                        // optional: initReassembleAnimation();
-                    }
-                }
-            });
-        });
-        observer.observe(nameEl, { childList: true });
-    }
-});
-
-// Smooth scroll implementation
+// ========== Smooth Scroll ==========
 document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', (e) => {
         const targetId = a.getAttribute('href');
         if (targetId === '#') return;
 
         e.preventDefault();
-
         const target = document.querySelector(targetId);
         const wrapper = document.getElementById('app-wrapper');
 
         if (target && wrapper) {
             const navHeight = 72;
-
-            const targetPosition =
-                target.offsetTop - navHeight;
+            const targetPosition = target.offsetTop - navHeight;
 
             wrapper.scrollTo({
                 top: targetPosition,
@@ -273,18 +181,166 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     });
 });
 
-// Dynamic nav background on scroll
-window.addEventListener('scroll', () => {
+// ========== Scroll source helper ==========
+const getScrollTop = () => {
+    const wrapper = document.getElementById('app-wrapper');
+    return wrapper ? wrapper.scrollTop : (window.scrollY || document.documentElement.scrollTop);
+};
+
+// ========== Dynamic Nav Background on Scroll ==========
+const updateNavOnScroll = () => {
     const nav = document.querySelector('nav');
-    if (window.scrollY > 50) {
+    const scrollY = getScrollTop();
+
+    if (scrollY > 60) {
         nav.style.background = document.body.classList.contains('light-mode')
-            ? 'rgba(255, 255, 255, 0.9)'
-            : 'rgba(10, 10, 10, 0.85)';
+            ? 'rgba(255, 255, 255, 0.92)'
+            : 'rgba(10, 10, 10, 0.88)';
         nav.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.1)';
     } else {
         nav.style.background = document.body.classList.contains('light-mode')
             ? 'rgba(255, 255, 255, 0.4)'
             : 'rgba(10, 10, 10, 0.5)';
         nav.style.boxShadow = 'none';
+    }
+};
+
+// ========== Active Nav Link on Scroll ==========
+const updateActiveNavLink = () => {
+    const sections = document.querySelectorAll('section[id]');
+    const scrollY = getScrollTop();
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 120;
+        const sectionHeight = section.offsetHeight;
+        const sectionId = section.getAttribute('id');
+
+        if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${sectionId}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+    });
+};
+
+// ========== Card Tilt Effect ==========
+const initTiltCards = () => {
+    const cards = document.querySelectorAll('.tilt-card');
+
+    cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+
+            const rotateX = ((y - centerY) / centerY) * -8;
+            const rotateY = ((x - centerX) / centerX) * 8;
+
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+        });
+    });
+};
+
+// ========== Spotlight Effect ==========
+const initSpotlight = () => {
+    const spotlights = document.querySelectorAll('.spotlight');
+
+    spotlights.forEach(el => {
+        el.addEventListener('mousemove', (e) => {
+            const rect = el.getBoundingClientRect();
+            const x = ((e.clientX - rect.left) / rect.width) * 100;
+            const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+            el.style.setProperty('--mx', `${x}%`);
+            el.style.setProperty('--my', `${y}%`);
+        });
+    });
+};
+
+// ========== Counter Animation ==========
+const animateCounter = (el, target, duration = 2000) => {
+    let current = 0;
+    const increment = target / (duration / 16);
+    const suffix = el.dataset.suffix || '';
+
+    const step = () => {
+        current += increment;
+        if (current < target) {
+            el.textContent = Math.floor(current) + suffix;
+            requestAnimationFrame(step);
+        } else {
+            el.textContent = target + suffix;
+        }
+    };
+    step();
+};
+
+const initCounters = () => {
+    const counters = document.querySelectorAll('[data-counter]');
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const target = parseInt(entry.target.dataset.counter);
+                animateCounter(entry.target, target);
+                counterObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    counters.forEach(counter => counterObserver.observe(counter));
+};
+
+// ========== Magnetic Buttons ==========
+const initMagneticButtons = () => {
+    const buttons = document.querySelectorAll('[data-magnetic]');
+
+    buttons.forEach(btn => {
+        btn.addEventListener('mousemove', (e) => {
+            const rect = btn.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+
+            btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+        });
+
+        btn.addEventListener('mouseleave', () => {
+            btn.style.transform = 'translate(0, 0)';
+        });
+    });
+};
+
+// ========== Initialize Everything ==========
+document.addEventListener('DOMContentLoaded', () => {
+    initReassembleAnimation();
+    initCursor();
+    initTiltCards();
+    initSpotlight();
+    initCounters();
+    initMagneticButtons();
+
+    // Scroll listeners
+    const wrapper = document.getElementById('app-wrapper');
+    if (wrapper) {
+        wrapper.addEventListener('scroll', () => {
+            updateScrollProgress();
+            updateNavOnScroll();
+            updateActiveNavLink();
+        });
+    } else {
+        window.addEventListener('scroll', () => {
+            updateScrollProgress();
+            updateNavOnScroll();
+            updateActiveNavLink();
+        });
     }
 });

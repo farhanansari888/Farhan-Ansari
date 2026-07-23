@@ -4,29 +4,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Farhan Ansari | Portfolio</title>
+
+    <!-- ======================= Primary SEO ======================= -->
+    <title>Farhan Ansari | App &amp; Web Developer Portfolio</title>
     <meta name="google-site-verification" content="r5zt8xbPstmGH-kfVLxMwBEGkCEPYmcjybXQDehNkfg" />
     <meta name="description"
-content="Official portfolio of Farhan Ansari. App Developer, Web Developer and creator showcasing projects, apps and innovative digital experiences.">
+        content="Official portfolio of Farhan Ansari — App Developer and Web Developer building intelligent apps, responsive websites, and innovative digital experiences with Java, React, Python and modern web technologies.">
     <meta name="author" content="Farhan Ansari">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="theme-color" content="#060606">
+    <meta name="keywords"
+        content="Farhan Ansari, Farhan Ansari portfolio, Developer Portfolio, App Developer, Web Developer, Android Developer, React Developer, Full Stack Developer, Java Developer, Python Developer, smartxhacker">
     <link rel="canonical" href="https://smartxhacker.com/">
+
+    <!-- ======================= Open Graph ======================= -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Farhan Ansari">
+    <meta property="og:title" content="Farhan Ansari | App &amp; Web Developer Portfolio">
+    <meta property="og:description"
+        content="App Developer and Web Developer building intelligent apps, responsive websites, and innovative digital experiences.">
+    <meta property="og:url" content="https://smartxhacker.com/">
+    <meta property="og:image" content="https://smartxhacker.com/imgs/profile.jpg">
+    <meta property="og:image:alt" content="Farhan Ansari — App &amp; Web Developer">
+    <meta property="og:locale" content="en_US">
+
+    <!-- ======================= Twitter Card ======================= -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Farhan Ansari | App &amp; Web Developer Portfolio">
+    <meta name="twitter:description"
+        content="App Developer and Web Developer building intelligent apps, responsive websites, and innovative digital experiences.">
+    <meta name="twitter:image" content="https://smartxhacker.com/imgs/profile.jpg">
+    <meta name="twitter:creator" content="@ansarixfarhan">
+
+    <!-- ======================= Icons ======================= -->
     <link rel="icon" href="/imgs/profile.jpg" type="image/jpeg">
+    <link rel="apple-touch-icon" href="/imgs/profile.jpg">
+
+    <!-- ======================= Structured Data (Person) ======================= -->
     <script type="application/ld+json">
-{
- "@context":"https://schema.org",
- "@type":"Person",
- "name":"Farhan Ansari",
- "url":"https://smartxhacker.com",
- "jobTitle":"Developer",
- "sameAs":[
-   "https://github.com/farhanansari888",
-   "https://www.instagram.com/ansarixfarhan",
-   "https://www.linkedin.com/in/ansarixfarhan/",
-   "https://t.me/smartxhacker"
- ]
-}
-</script>
-    <meta name="keywords" content="Farhan Ansari, Developer Portfolio, App Developer, Web Developer">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Farhan Ansari",
+      "url": "https://smartxhacker.com",
+      "image": "https://smartxhacker.com/imgs/profile.jpg",
+      "jobTitle": "App & Web Developer",
+      "description": "App Developer and Web Developer building intelligent apps, responsive websites, and innovative digital experiences.",
+      "knowsAbout": ["App Development", "Web Development", "Android", "React", "Java", "Python", "Machine Learning", "UI/UX Design"],
+      "sameAs": [
+        "https://github.com/farhanansari888",
+        "https://www.instagram.com/ansarixfarhan",
+        "https://www.linkedin.com/in/ansarixfarhan/",
+        "https://t.me/smartxhacker"
+      ]
+    }
+    </script>
+
+    <!-- ======================= Structured Data (Website) ======================= -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Farhan Ansari Portfolio",
+      "url": "https://smartxhacker.com/"
+    }
+    </script>
+
+    <!-- ======================= Performance hints ======================= -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+
     <!-- Tailwind -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
@@ -34,13 +82,27 @@ content="Official portfolio of Farhan Ansari. App Developer, Web Developer and c
     <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter&family=Outfit&family=Playfair+Display&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital@0;1&display=swap"
         rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body class="h-full font-body text-gray-200 bg-[#060606] overflow-x-hidden" id="body-el">
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <span class="loader-mark">Farhan Ansari</span>
+        <div class="loader-bar"></div>
+    </div>
+
+    <!-- Scroll progress -->
+    <div id="scroll-progress"></div>
+
+    <!-- Custom cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+
     <div id="app-wrapper" class="w-full h-full overflow-x-hidden overflow-y-auto relative bg-[#060606]">
         <div class="bg-glow"></div>
         <div class="bg-glow" style="top: auto; bottom: -200px; left: auto; right: -200px;"></div>
@@ -48,15 +110,15 @@ content="Official portfolio of Farhan Ansari. App Developer, Web Developer and c
         <!-- Nav -->
         <nav class="w-full fixed top-0 left-0 z-50 glass-nav transition-all duration-300">
             <div class="max-w-6xl mx-auto px-6 flex items-center justify-between" style="height:72px;">
-                <span id="nav-name"
-                    class="font-sans-display font-semibold text-xl tracking-tight text-white">Farhan Ansari</span>
+                <a href="#hero" id="nav-name"
+                    class="font-sans-display font-semibold text-xl tracking-tight text-white">Farhan Ansari</a>
                 <div class="hidden md:flex items-center gap-10 text-xs tracking-[0.15em] uppercase font-medium">
                     <a href="#about" class="nav-link text-white">About</a>
                     <a href="#skills" class="nav-link text-white">Skills</a>
                     <a href="#projects" class="nav-link text-white">Projects</a>
                     <a href="#contact" class="nav-link text-white">Contact</a>
                 </div>
-                <button id="mobile-menu-btn" class="md:hidden text-white" aria-label="Menu">
+                <button id="mobile-menu-btn" class="md:hidden text-white" aria-label="Open menu">
                     <i data-lucide="menu" style="width:24px;height:24px;"></i>
                 </button>
             </div>
@@ -65,7 +127,7 @@ content="Official portfolio of Farhan Ansari. App Developer, Web Developer and c
         <!-- Mobile Menu -->
         <div id="mobile-menu"
             class="fixed inset-0 z-50 hidden flex-col items-center justify-center gap-10 bg-[#060606] bg-opacity-95 backdrop-blur-xl">
-            <button id="mobile-close-btn" class="absolute top-6 right-6 text-white" aria-label="Close">
+            <button id="mobile-close-btn" class="absolute top-6 right-6 text-white" aria-label="Close menu">
                 <i data-lucide="x" style="width:28px;height:28px;"></i>
             </button>
             <a href="#about"
@@ -87,7 +149,7 @@ content="Official portfolio of Farhan Ansari. App Developer, Web Developer and c
                 class="absolute inset-0 z-0 bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]">
             </div>
 
-            <!-- Animated Ambient Background mesh glow (Performance Optimized) -->
+            <!-- Animated Ambient Background mesh glow -->
             <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
                 <div
                     class="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] bg-[radial-gradient(circle_at_center,rgba(79,70,229,0.15)_0%,transparent_60%)] animate-[float-hero_8s_ease-in-out_infinite]">
@@ -98,6 +160,10 @@ content="Official portfolio of Farhan Ansari. App Developer, Web Developer and c
                 <div
                     class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-[radial-gradient(circle_at_center,rgba(16,185,129,0.1)_0%,transparent_60%)] animate-[float-hero_12s_ease-in-out_infinite]">
                 </div>
+                <!-- Floating decorative shapes -->
+                <div class="floating-shape w-24 h-24 top-[20%] left-[15%]" style="animation-delay:0s;"></div>
+                <div class="floating-shape w-16 h-16 top-[65%] left-[80%]" style="animation-delay:-6s;"></div>
+                <div class="floating-shape w-20 h-20 top-[75%] left-[20%]" style="animation-delay:-12s;"></div>
             </div>
 
             <div
@@ -122,16 +188,23 @@ content="Official portfolio of Farhan Ansari. App Developer, Web Developer and c
             </p>
 
             <div class="fade-in mt-16 flex flex-col sm:flex-row gap-6 items-center justify-center">
-                <a href="#projects"
+                <a href="#projects" data-magnetic
                     class="button-primary group relative inline-flex items-center gap-3 text-sm font-medium tracking-[0.1em] uppercase px-10 py-5 bg-white text-black rounded-full hover:scale-105 transition-transform duration-300 shadow-[0_0_40px_rgba(255,255,255,0.2)]">
                     Explore My Work <i data-lucide="arrow-right" class="group-hover:translate-x-1 transition-transform"
                         style="width:18px;height:18px;"></i>
                 </a>
-                <a href="#contact"
-                    class="group relative inline-flex items-center gap-3 text-sm font-medium tracking-[0.1em] uppercase px-10 py-5 border border-white/20 text-white rounded-full hover:bg-white/5 hover:scale-105 transition-all duration-300">
+                <a href="#contact" data-magnetic
+                    class="btn-shine group relative inline-flex items-center gap-3 text-sm font-medium tracking-[0.1em] uppercase px-10 py-5 border border-white/20 text-white rounded-full hover:bg-white/5 hover:scale-105 transition-all duration-300">
                     Get in touch
                 </a>
             </div>
+
+            <!-- Scroll cue -->
+            <a href="#about" aria-label="Scroll to About"
+                class="fade-in absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-gray-500 hover:text-white transition-colors">
+                <span class="text-[10px] tracking-[0.3em] uppercase">Scroll</span>
+                <i data-lucide="chevron-down" class="animate-bounce" style="width:20px;height:20px;"></i>
+            </a>
         </section>
 
         <!-- Divider -->
@@ -146,16 +219,17 @@ content="Official portfolio of Farhan Ansari. App Developer, Web Developer and c
                         About Me</h2>
                 </div>
                 <div class="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
-                    <div class="lg:col-span-4 fade-in">
-                        <div class="w-full aspect-[4/5] rounded-3xl overflow-hidden relative group">
+                    <div class="lg:col-span-4 reveal-left fade-in">
+                        <div class="w-full aspect-[4/5] rounded-3xl overflow-hidden relative group tilt-card spotlight glow-card">
                             <div
-                                class="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 mixing-blend-overlay">
+                                class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10">
                             </div>
-                            <img src="/imgs/profile.jpg" id="profile-img" alt="Farhan Ansari"
+                            <img src="/imgs/profile.jpg" id="profile-img" alt="Portrait of Farhan Ansari, App and Web Developer"
+                                width="480" height="600" loading="lazy"
                                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                         </div>
                     </div>
-                    <div class="lg:col-span-8 fade-in flex flex-col justify-center">
+                    <div class="lg:col-span-8 reveal-right fade-in flex flex-col justify-center">
                         <h3 class="font-serif-display text-3xl md:text-4xl text-white mb-8 leading-tight">Hi, I'm
                             <strong>Farhan Ansari</strong></h3>
                         <p id="about-text" class="text-base md:text-lg leading-[1.8] font-light text-gray-300">
@@ -167,12 +241,12 @@ content="Official portfolio of Farhan Ansari. App Developer, Web Developer and c
                         </p>
                         <div class="mt-12 grid grid-cols-2 gap-8 pt-8 border-t border-white/10 w-full max-w-sm">
                             <div>
-                                <span class="font-sans-display text-4xl md:text-5xl font-light text-white">5+</span>
+                                <span class="font-sans-display text-4xl md:text-5xl font-light text-white" data-counter="5" data-suffix="+">5+</span>
                                 <p class="text-xs mt-3 tracking-widest uppercase text-gray-500 font-medium">Projects
                                     Built</p>
                             </div>
                             <div>
-                                <span class="font-sans-display text-4xl md:text-5xl font-light text-white">10+</span>
+                                <span class="font-sans-display text-4xl md:text-5xl font-light text-white" data-counter="10" data-suffix="+">10+</span>
                                 <p class="text-xs mt-3 tracking-widest uppercase text-gray-500 font-medium">Technologies
                                 </p>
                             </div>
@@ -198,94 +272,82 @@ content="Official portfolio of Farhan Ansari. App Developer, Web Developer and c
                         systems, websites, and mobile applications.</p>
                 </div>
 
-                <div class="flex flex-wrap justify-center gap-8 fade-in">
+                <div class="flex flex-wrap justify-center gap-8">
                     <!-- Card 1 -->
                     <div
-                        class="fade-in bg-white rounded-[24px] p-5 flex flex-col gap-3 w-full max-w-[320px] border border-gray-100 shadow-[0_4px_20px_-4px_rgba(255,255,255,0.05)] hover:shadow-[0_8px_30px_-4px_rgba(255,255,255,0.15)] hover:-translate-y-1 transition-all duration-300 relative z-10 group overflow-hidden">
-                        <div
-                            class="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-blue-500/10 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform duration-500">
-                            <i data-lucide="brain-circuit" class="text-blue-500" style="width:28px;height:28px;"></i>
-                        </div>
-                        <div class="flex flex-col gap-1 mt-1">
-                            <h3 class="font-sans-display font-medium text-base text-gray-900 leading-tight">AI & Machine
-                                Learning</h3>
-                        </div>
-                        <div class="flex flex-wrap gap-1.5 mt-1 border-t border-gray-100 pt-3">
-                            <span
-                                class="text-[11px] font-medium px-2 py-1 rounded-md bg-gray-50 text-gray-600 border border-gray-100/50">Python</span>
-                            <span
-                                class="text-[11px] font-medium px-2 py-1 rounded-md bg-gray-50 text-gray-600 border border-gray-100/50">TensorFlow</span>
-                            <span
-                                class="text-[11px] font-medium px-2 py-1 rounded-md bg-gray-50 text-gray-600 border border-gray-100/50">PyTorch</span>
-                            <span
-                                class="text-[11px] font-medium px-2 py-1 rounded-md bg-gray-50 text-gray-600 border border-gray-100/50">Scikit-learn</span>
-                            <span
-                                class="text-[11px] font-medium px-2 py-1 rounded-md bg-gray-50 text-gray-600 border border-gray-100/50">Data
-                                Analysis</span>
+                        class="fade-in reveal-scale tilt-card glow-card bg-white rounded-[24px] p-5 flex flex-col gap-3 w-full max-w-[320px] border border-gray-100 shadow-[0_4px_20px_-4px_rgba(255,255,255,0.05)] hover:shadow-[0_8px_30px_-4px_rgba(255,255,255,0.15)] transition-all duration-300 relative z-10 group overflow-hidden">
+                        <div class="tilt-inner flex flex-col gap-3">
+                            <div
+                                class="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-blue-500/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500">
+                                <i data-lucide="brain-circuit" class="text-blue-500" style="width:28px;height:28px;"></i>
+                            </div>
+                            <div class="flex flex-col gap-1 mt-1">
+                                <h3 class="font-sans-display font-medium text-base text-gray-900 leading-tight">AI &
+                                    Machine Learning</h3>
+                            </div>
+                            <div class="flex flex-wrap gap-1.5 mt-1 border-t border-gray-100 pt-3">
+                                <span class="text-[11px] font-medium px-2 py-1 rounded-md bg-gray-50 text-gray-600 border border-gray-100/50">Python</span>
+                                <span class="text-[11px] font-medium px-2 py-1 rounded-md bg-gray-50 text-gray-600 border border-gray-100/50">TensorFlow</span>
+                                <span class="text-[11px] font-medium px-2 py-1 rounded-md bg-gray-50 text-gray-600 border border-gray-100/50">PyTorch</span>
+                                <span class="text-[11px] font-medium px-2 py-1 rounded-md bg-gray-50 text-gray-600 border border-gray-100/50">Scikit-learn</span>
+                                <span class="text-[11px] font-medium px-2 py-1 rounded-md bg-gray-50 text-gray-600 border border-gray-100/50">Data Analysis</span>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Card 2 -->
                     <div
-                        class="fade-in bg-white rounded-[24px] p-5 flex flex-col gap-3 w-full max-w-[320px] border border-gray-100 shadow-[0_4px_20px_-4px_rgba(255,255,255,0.05)] hover:shadow-[0_8px_30px_-4px_rgba(255,255,255,0.15)] hover:-translate-y-1 transition-all duration-300 relative z-10 group overflow-hidden">
-                        <div
-                            class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-500/10 to-teal-500/10 border border-emerald-500/10 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform duration-500">
-                            <i data-lucide="database" class="text-emerald-500" style="width:28px;height:28px;"></i>
-                        </div>
-                        <div class="flex flex-col gap-1 mt-1">
-                            <h3 class="font-sans-display font-medium text-base text-gray-900 leading-tight">Backend &
-                                Systems</h3>
-                        </div>
-                        <div class="flex flex-wrap gap-1.5 mt-1 border-t border-gray-100 pt-3">
-                            <span
-                                class="text-[11px] font-medium px-2 py-1 rounded-md bg-gray-50 text-gray-600 border border-gray-100/50">Java</span>
-                            <span
-                                class="text-[11px] font-medium px-2 py-1 rounded-md bg-gray-50 text-gray-600 border border-gray-100/50">MongoDB</span>
-                            <span
-                                class="text-[11px] font-medium px-2 py-1 rounded-md bg-gray-50 text-gray-600 border border-gray-100/50">SQL</span>
-                            <span
-                                class="text-[11px] font-medium px-2 py-1 rounded-md bg-gray-50 text-gray-600 border border-gray-100/50">Docker</span>
-                            <span
-                                class="text-[11px] font-medium px-2 py-1 rounded-md bg-gray-50 text-gray-600 border border-gray-100/50">REST
-                                APIs</span>
+                        class="fade-in reveal-scale tilt-card glow-card bg-white rounded-[24px] p-5 flex flex-col gap-3 w-full max-w-[320px] border border-gray-100 shadow-[0_4px_20px_-4px_rgba(255,255,255,0.05)] hover:shadow-[0_8px_30px_-4px_rgba(255,255,255,0.15)] transition-all duration-300 relative z-10 group overflow-hidden">
+                        <div class="tilt-inner flex flex-col gap-3">
+                            <div
+                                class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-500/10 to-teal-500/10 border border-emerald-500/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500">
+                                <i data-lucide="database" class="text-emerald-500" style="width:28px;height:28px;"></i>
+                            </div>
+                            <div class="flex flex-col gap-1 mt-1">
+                                <h3 class="font-sans-display font-medium text-base text-gray-900 leading-tight">Backend &
+                                    Systems</h3>
+                            </div>
+                            <div class="flex flex-wrap gap-1.5 mt-1 border-t border-gray-100 pt-3">
+                                <span class="text-[11px] font-medium px-2 py-1 rounded-md bg-gray-50 text-gray-600 border border-gray-100/50">Java</span>
+                                <span class="text-[11px] font-medium px-2 py-1 rounded-md bg-gray-50 text-gray-600 border border-gray-100/50">MongoDB</span>
+                                <span class="text-[11px] font-medium px-2 py-1 rounded-md bg-gray-50 text-gray-600 border border-gray-100/50">SQL</span>
+                                <span class="text-[11px] font-medium px-2 py-1 rounded-md bg-gray-50 text-gray-600 border border-gray-100/50">Docker</span>
+                                <span class="text-[11px] font-medium px-2 py-1 rounded-md bg-gray-50 text-gray-600 border border-gray-100/50">REST APIs</span>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Card 3 -->
                     <div
-                        class="fade-in bg-white rounded-[24px] p-5 flex flex-col gap-3 w-full max-w-[320px] border border-gray-100 shadow-[0_4px_20px_-4px_rgba(255,255,255,0.05)] hover:shadow-[0_8px_30px_-4px_rgba(255,255,255,0.15)] hover:-translate-y-1 transition-all duration-300 relative z-10 group overflow-hidden">
-                        <div
-                            class="w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-500/10 to-red-500/10 border border-orange-500/10 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform duration-500">
-                            <i data-lucide="layout-template" class="text-orange-500"
-                                style="width:28px;height:28px;"></i>
-                        </div>
-                        <div class="flex flex-col gap-1 mt-1">
-                            <h3 class="font-sans-display font-medium text-base text-gray-900 leading-tight">Frontend &
-                                Web</h3>
-                        </div>
-                        <div class="flex flex-wrap gap-1.5 mt-1 border-t border-gray-100 pt-3">
-                            <span
-                                class="text-[11px] font-medium px-2 py-1 rounded-md bg-gray-50 text-gray-600 border border-gray-100/50">JavaScript</span>
-                            <span
-                                class="text-[11px] font-medium px-2 py-1 rounded-md bg-gray-50 text-gray-600 border border-gray-100/50">HTML/CSS</span>
-                            <span
-                                class="text-[11px] font-medium px-2 py-1 rounded-md bg-gray-50 text-gray-600 border border-gray-100/50">UI/UX</span>
-                            <span
-                                class="text-[11px] font-medium px-2 py-1 rounded-md bg-gray-50 text-gray-600 border border-gray-100/50">React</span>
-                            <span
-                                class="text-[11px] font-medium px-2 py-1 rounded-md bg-gray-50 text-gray-600 border border-gray-100/50">Tailwind</span>
+                        class="fade-in reveal-scale tilt-card glow-card bg-white rounded-[24px] p-5 flex flex-col gap-3 w-full max-w-[320px] border border-gray-100 shadow-[0_4px_20px_-4px_rgba(255,255,255,0.05)] hover:shadow-[0_8px_30px_-4px_rgba(255,255,255,0.15)] transition-all duration-300 relative z-10 group overflow-hidden">
+                        <div class="tilt-inner flex flex-col gap-3">
+                            <div
+                                class="w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-500/10 to-red-500/10 border border-orange-500/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500">
+                                <i data-lucide="layout-template" class="text-orange-500"
+                                    style="width:28px;height:28px;"></i>
+                            </div>
+                            <div class="flex flex-col gap-1 mt-1">
+                                <h3 class="font-sans-display font-medium text-base text-gray-900 leading-tight">Frontend &
+                                    Web</h3>
+                            </div>
+                            <div class="flex flex-wrap gap-1.5 mt-1 border-t border-gray-100 pt-3">
+                                <span class="text-[11px] font-medium px-2 py-1 rounded-md bg-gray-50 text-gray-600 border border-gray-100/50">JavaScript</span>
+                                <span class="text-[11px] font-medium px-2 py-1 rounded-md bg-gray-50 text-gray-600 border border-gray-100/50">HTML/CSS</span>
+                                <span class="text-[11px] font-medium px-2 py-1 rounded-md bg-gray-50 text-gray-600 border border-gray-100/50">UI/UX</span>
+                                <span class="text-[11px] font-medium px-2 py-1 rounded-md bg-gray-50 text-gray-600 border border-gray-100/50">React</span>
+                                <span class="text-[11px] font-medium px-2 py-1 rounded-md bg-gray-50 text-gray-600 border border-gray-100/50">Tailwind</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Decorative Marquee Background (Performance Optimized) -->
+            <!-- Decorative Marquee Background -->
             <div
                 class="absolute top-[40%] left-0 w-full -translate-y-1/2 overflow-hidden opacity-[0.03] pointer-events-none z-0">
                 <div class="marquee-track flex gap-16 items-center whitespace-nowrap">
                     <span class="font-serif-display italic text-8xl md:text-[14rem] text-white">App Developer</span>
                     <span class="font-serif-display italic text-8xl md:text-[14rem] text-white">Web Developer</span>
-                    <!-- Repeat -->
                     <span class="font-serif-display italic text-8xl md:text-[14rem] text-white">App Developer</span>
                     <span class="font-serif-display italic text-8xl md:text-[14rem] text-white">Web Developer</span>
                 </div>
@@ -306,75 +368,79 @@ content="Official portfolio of Farhan Ansari. App Developer, Web Developer and c
 
                 <div class="flex flex-wrap justify-center gap-8">
                     <!-- Project 1 -->
-                    <div
-                        class="fade-in bg-white rounded-[24px] p-6 flex flex-col gap-4 w-full max-w-[340px] border border-gray-100 shadow-[0_4px_20px_-4px_rgba(255,255,255,0.05)] hover:shadow-[0_8px_30px_-4px_rgba(255,255,255,0.15)] hover:-translate-y-1 transition-all duration-300 relative z-10 group overflow-hidden">
-                        <img alt="Smart Tunnel VPN"
-                            class="pointer-events-none aspect-square w-16 rounded-2xl object-cover select-none"
-                            loading="lazy"
-                            src="https://github.com/farhanansari888/smart-config/blob/main/ic_icon_foreground.png?raw=true" />
-                        <div class="flex flex-col gap-1 mt-1">
-                            <h3 id="project1-title"
-                                class="font-sans-display font-medium text-lg text-gray-900 leading-tight">Smart Tunnel
-                                VPN</h3>
-                            <div class="flex gap-1.5 mt-1 opacity-80">
-                                <span class="text-[11px] font-medium text-gray-500">Java</span>
-                                <span class="text-[11px] font-medium text-gray-300">•</span>
-                                <span class="text-[11px] font-medium text-gray-500">Android SDK</span>
+                    <article
+                        class="fade-in reveal-scale tilt-card glow-card bg-white rounded-[24px] p-6 flex flex-col gap-4 w-full max-w-[340px] border border-gray-100 shadow-[0_4px_20px_-4px_rgba(255,255,255,0.05)] hover:shadow-[0_8px_30px_-4px_rgba(255,255,255,0.15)] transition-all duration-300 relative z-10 group overflow-hidden">
+                        <div class="tilt-inner flex flex-col gap-4 flex-grow">
+                            <img alt="Smart Tunnel VPN app icon"
+                                class="pointer-events-none aspect-square w-16 rounded-2xl object-cover select-none group-hover:scale-110 transition-transform duration-500"
+                                loading="lazy" width="64" height="64"
+                                src="https://github.com/farhanansari888/smart-config/blob/main/ic_icon_foreground.png?raw=true" />
+                            <div class="flex flex-col gap-1 mt-1">
+                                <h3 id="project1-title"
+                                    class="font-sans-display font-medium text-lg text-gray-900 leading-tight">Smart Tunnel
+                                    VPN</h3>
+                                <div class="flex gap-1.5 mt-1 opacity-80">
+                                    <span class="text-[11px] font-medium text-gray-500">Java</span>
+                                    <span class="text-[11px] font-medium text-gray-300">•</span>
+                                    <span class="text-[11px] font-medium text-gray-500">Android SDK</span>
+                                </div>
+                            </div>
+                            <p id="project1-desc"
+                                class="text-[14px] text-gray-500 leading-relaxed font-normal mb-2 flex-grow line-clamp-4">
+                                A VPN app with SSH and V2ray support, built using Java and Android SDK. It features a sleek
+                                UI, multiple server options, and robust security measures for safe and private browsing on
+                                mobile devices.
+                            </p>
+                            <div class="flex items-center gap-2 pt-4 mt-auto border-t border-gray-50">
+                                <div
+                                    class="w-7 h-7 rounded-full overflow-hidden bg-gradient-to-br from-indigo-500 to-purple-500 flex flex-shrink-0 items-center justify-center text-[10px] font-bold text-white shadow-sm ring-2 ring-white/50">
+                                    FA
+                                </div>
+                                <span class="text-xs text-gray-700 font-medium">By Farhan Ansari</span>
                             </div>
                         </div>
-                        <p id="project1-desc"
-                            class="text-[14px] text-gray-500 leading-relaxed font-normal mb-2 flex-grow line-clamp-4">
-                            A VPN app with SSH and V2ray support, built using Java and Android SDK. It features a sleek
-                            UI, multiple server options, and robust security measures for safe and private browsing on
-                            mobile devices.
-                        </p>
-                        <div class="flex items-center gap-2 pt-4 mt-auto border-t border-gray-50">
-                            <!-- Avatar -->
-                            <div
-                                class="w-7 h-7 rounded-full overflow-hidden bg-gradient-to-br from-indigo-500 to-purple-500 flex flex-shrink-0 items-center justify-center text-[10px] font-bold text-white shadow-sm ring-2 ring-white/50">
-                                PP
-                            </div>
-                            <span class="text-xs text-gray-700 font-medium">By Farhan Ansari</span>
-                        </div>
-                    </div>
+                    </article>
+
                     <!-- Project 2 -->
-                    <div
-                        class="fade-in bg-white rounded-[24px] p-6 flex flex-col gap-4 w-full max-w-[340px] border border-gray-100 shadow-[0_4px_20px_-4px_rgba(255,255,255,0.05)] hover:shadow-[0_8px_30px_-4px_rgba(255,255,255,0.15)] hover:-translate-y-1 transition-all duration-300 relative z-10 group overflow-hidden">
-                        <img alt="Dental Clinic Website"
-                            class="pointer-events-none aspect-square w-16 rounded-2xl object-cover select-none"
-                            loading="lazy" src="https://rahul-jain-clinic.vercel.app/imgs/hero.jpeg" />
-                        <div class="flex flex-col gap-1 mt-1">
-                            <h3 id="project2-title"
-                                class="font-sans-display font-medium text-lg text-gray-900 leading-tight">Dental Clinic
-                                Website</h3>
-                            <div class="flex gap-1.5 mt-1 opacity-80">
-                                <span class="text-[11px] font-medium text-gray-500">React</span>
-                                <span class="text-[11px] font-medium text-gray-300">•</span>
-                                <span class="text-[11px] font-medium text-gray-500">Tailwind CSS</span>
+                    <article
+                        class="fade-in reveal-scale tilt-card glow-card bg-white rounded-[24px] p-6 flex flex-col gap-4 w-full max-w-[340px] border border-gray-100 shadow-[0_4px_20px_-4px_rgba(255,255,255,0.05)] hover:shadow-[0_8px_30px_-4px_rgba(255,255,255,0.15)] transition-all duration-300 relative z-10 group overflow-hidden">
+                        <div class="tilt-inner flex flex-col gap-4 flex-grow">
+                            <img alt="Dental Clinic Website preview"
+                                class="pointer-events-none aspect-square w-16 rounded-2xl object-cover select-none group-hover:scale-110 transition-transform duration-500"
+                                loading="lazy" width="64" height="64" src="https://rahul-jain-clinic.vercel.app/imgs/hero.jpeg" />
+                            <div class="flex flex-col gap-1 mt-1">
+                                <h3 id="project2-title"
+                                    class="font-sans-display font-medium text-lg text-gray-900 leading-tight">Dental Clinic
+                                    Website</h3>
+                                <div class="flex gap-1.5 mt-1 opacity-80">
+                                    <span class="text-[11px] font-medium text-gray-500">React</span>
+                                    <span class="text-[11px] font-medium text-gray-300">•</span>
+                                    <span class="text-[11px] font-medium text-gray-500">Tailwind CSS</span>
+                                </div>
+                            </div>
+                            <p id="project2-desc"
+                                class="text-[14px] text-gray-500 leading-relaxed font-normal mb-2 flex-grow line-clamp-4">
+                                A modern dental clinic website built with React and Tailwind CSS. It features a clean
+                                design, responsive layout, and interactive elements to enhance user experience. The site
+                                includes appointment booking, service information, and patient testimonials.
+                            </p>
+                            <div class="flex items-center gap-2 pt-4 mt-auto border-t border-gray-50">
+                                <div
+                                    class="w-7 h-7 rounded-full overflow-hidden bg-gradient-to-br from-indigo-500 to-purple-500 flex flex-shrink-0 items-center justify-center text-[10px] font-bold text-white shadow-sm ring-2 ring-white/50">
+                                    FA
+                                </div>
+                                <span class="text-xs text-gray-700 font-medium">By Farhan Ansari</span>
                             </div>
                         </div>
-                        <p id="project2-desc"
-                            class="text-[14px] text-gray-500 leading-relaxed font-normal mb-2 flex-grow line-clamp-4">
-                            A modern dental clinic website built with React and Tailwind CSS. It features a clean
-                            design, responsive layout, and interactive elements to enhance user experience. The site
-                            includes appointment booking, service information, and patient testimonials.
-                        </p>
-                        <div class="flex items-center gap-2 pt-4 mt-auto border-t border-gray-50">
-                            <!-- Avatar -->
-                            <div
-                                class="w-7 h-7 rounded-full overflow-hidden bg-gradient-to-br from-indigo-500 to-purple-500 flex flex-shrink-0 items-center justify-center text-[10px] font-bold text-white shadow-sm ring-2 ring-white/50">
-                                PP
-                            </div>
-                            <span class="text-xs text-gray-700 font-medium">By Farhan Ansari</span>
-                        </div>
-                    </div>
-                    <div class="flex flex-wrap justify-center gap-8">
-                        <!-- Project 3 -->
-                        <div
-                            class="fade-in bg-white rounded-[24px] p-6 flex flex-col gap-4 w-full max-w-[340px] border border-gray-100 shadow-[0_4px_20px_-4px_rgba(255,255,255,0.05)] hover:shadow-[0_8px_30px_-4px_rgba(255,255,255,0.15)] hover:-translate-y-1 transition-all duration-300 relative z-10 group overflow-hidden">
-                            <img alt="Hunting Exoplanet"
-                                class="pointer-events-none aspect-square w-16 rounded-2xl object-cover select-none"
-                                loading="lazy" src="https://ansa-eight.vercel.app/hero.png" />
+                    </article>
+
+                    <!-- Project 3 -->
+                    <article
+                        class="fade-in reveal-scale tilt-card glow-card bg-white rounded-[24px] p-6 flex flex-col gap-4 w-full max-w-[340px] border border-gray-100 shadow-[0_4px_20px_-4px_rgba(255,255,255,0.05)] hover:shadow-[0_8px_30px_-4px_rgba(255,255,255,0.15)] transition-all duration-300 relative z-10 group overflow-hidden">
+                        <div class="tilt-inner flex flex-col gap-4 flex-grow">
+                            <img alt="Ansa Fashion Design website preview"
+                                class="pointer-events-none aspect-square w-16 rounded-2xl object-cover select-none group-hover:scale-110 transition-transform duration-500"
+                                loading="lazy" width="64" height="64" src="https://ansa-eight.vercel.app/hero.png" />
                             <div class="flex flex-col gap-1 mt-1">
                                 <h3 id="project3-title"
                                     class="font-sans-display font-medium text-lg text-gray-900 leading-tight">
@@ -393,16 +459,16 @@ content="Official portfolio of Farhan Ansari. App Developer, Web Developer and c
                                 of designs, designer profiles, and a contact form for inquiries.
                             </p>
                             <div class="flex items-center gap-2 pt-4 mt-auto border-t border-gray-50">
-                                <!-- Avatar -->
                                 <div
                                     class="w-7 h-7 rounded-full overflow-hidden bg-gradient-to-br from-indigo-500 to-purple-500 flex flex-shrink-0 items-center justify-center text-[10px] font-bold text-white shadow-sm ring-2 ring-white/50">
-                                    PP
+                                    FA
                                 </div>
                                 <span class="text-xs text-gray-700 font-medium">By Farhan Ansari</span>
                             </div>
                         </div>
-                    </div>
+                    </article>
                 </div>
+            </div>
         </section>
 
         <!-- Contact -->
@@ -421,8 +487,8 @@ content="Official portfolio of Farhan Ansari. App Developer, Web Developer and c
                 </p>
 
                 <div class="fade-in flex justify-center mb-16">
-                    <a href="mailto:farhanansari8560@gmail.com"
-                        class="group relative inline-flex items-center justify-center px-10 py-5 text-base font-medium text-white transition-all duration-300 bg-black rounded-full hover:bg-gray-800 overflow-hidden">
+                    <a href="mailto:farhanansari8560@gmail.com" data-magnetic
+                        class="group relative inline-flex items-center justify-center px-10 py-5 text-base font-medium text-white transition-all duration-300 bg-black rounded-full hover:bg-gray-800 hover:scale-105 overflow-hidden">
                         <span class="relative z-10 flex items-center gap-3">
                             <i data-lucide="mail" style="width:20px;height:20px;"></i> Start a Conversation
                         </span>
@@ -431,20 +497,23 @@ content="Official portfolio of Farhan Ansari. App Developer, Web Developer and c
 
                 <div class="fade-in flex flex-wrap justify-center gap-4">
                     <a href="https://www.linkedin.com/in/ansarixfarhan/" target="_blank" rel="noopener noreferrer"
-                        class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-gray-300 text-xs font-medium tracking-widest uppercase transition-all duration-300 hover:bg-black hover:text-white hover:border-black text-black">
+                        aria-label="LinkedIn profile of Farhan Ansari"
+                        class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-gray-300 text-xs font-medium tracking-widest uppercase transition-all duration-300 hover:bg-black hover:text-white hover:border-black hover:-translate-y-1 text-black">
                         <i data-lucide="linkedin" style="width:16px;height:16px;"></i> LinkedIn
                     </a>
                     <a href="https://github.com/farhanansari888" target="_blank" rel="noopener noreferrer"
-                        class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-gray-300 text-xs font-medium tracking-widest uppercase transition-all duration-300 hover:bg-black hover:text-white hover:border-black text-black">
+                        aria-label="GitHub profile of Farhan Ansari"
+                        class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-gray-300 text-xs font-medium tracking-widest uppercase transition-all duration-300 hover:bg-black hover:text-white hover:border-black hover:-translate-y-1 text-black">
                         <i data-lucide="github" style="width:16px;height:16px;"></i> GitHub
                     </a>
                     <a href="https://www.instagram.com/ansarixfarhan/" target="_blank" rel="noopener noreferrer"
-                        class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-gray-300 text-xs font-medium tracking-widest uppercase transition-all duration-300 hover:bg-black hover:text-white hover:border-black text-black">
+                        aria-label="Instagram profile of Farhan Ansari"
+                        class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-gray-300 text-xs font-medium tracking-widest uppercase transition-all duration-300 hover:bg-black hover:text-white hover:border-black hover:-translate-y-1 text-black">
                         <i data-lucide="instagram" style="width:16px;height:16px;"></i> Instagram
                     </a>
                     <a href="https://t.me/smartxhacker" target="_blank" rel="noopener noreferrer"
-                        class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-gray-300 text-xs font-medium tracking-widest uppercase transition-all duration-300 hover:bg-black hover:text-white hover:border-black text-black">
-                        <!-- Added inline-flex and 16px font-size to match Lucide's dimensions -->
+                        aria-label="Telegram of Farhan Ansari"
+                        class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-gray-300 text-xs font-medium tracking-widest uppercase transition-all duration-300 hover:bg-black hover:text-white hover:border-black hover:-translate-y-1 text-black">
                         <i class="ri-telegram-line inline-flex" style="font-size: 16px; line-height: 1;"></i>
                         Telegram
                     </a>
